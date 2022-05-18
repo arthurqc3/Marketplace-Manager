@@ -24,7 +24,6 @@ public class Usuario_Function extends Usuario_Conta {
 			Integer.parseInt(menu);
 			saida = true;
 		} catch (NumberFormatException e) {
-			System.out.println("Digite um valor valido!");
 			saida = false;
 		}
 		
@@ -35,20 +34,14 @@ public class Usuario_Function extends Usuario_Conta {
 		public static boolean acessoUser(String login, String senha) {
 			boolean saida = false;
 			
-			for(Usuario_Function ud : LoginUser) {
-				
-				if(ud.getLogin().equals(login)) {
-					
-					if(ud.getSenha().equals(senha)) {
+			for(Usuario_Function ud : LoginUser) {				
+				if(ud.getLogin().equals(login) && ud.getSenha().equals(senha)) {			
 						
-						MenuAcess(login, senha);
+						MainTesteLogin.Menu();
 						
 						saida = true;
-					} else {
-						System.out.println("Erro na digitação da senha!\n");
-					}
 				} else {
-					System.out.println("Usuario não encontrado\n");
+					System.out.println("Usuário e/ou senha incorrreto(s)!");					
 				}
 			}		
 			return saida;
@@ -72,7 +65,68 @@ public class Usuario_Function extends Usuario_Conta {
 		}
 	}
 	
-	
+	//COMPARAR DADOS DO USUARIO
+	public static boolean ComparaNome(String nome_empresa) {
+		boolean saida = true;
+		
+		for(Usuario_Function ud : LoginUser) {
+			if(ud.getNome_empresa().equals(nome_empresa)) {
+				System.out.println("Nome ja utilizado, crie um novo!");
+				
+				saida = false;
+			}	
+		}
+		return saida;
+	}
+	public static boolean ComparaCnpj(String cnpj) {
+		boolean saida = true;
+		
+		for(Usuario_Function ud : LoginUser) {
+			if(ud.getCnpj().equals(cnpj)) {
+				System.out.println("CNPJ ja cadastrado!");
+				
+				saida = false;
+			}
+		}
+		return saida;
+	}
+	public static boolean ComparaEmail(String email) {
+		boolean saida = true;
+		
+		for(Usuario_Function ud : LoginUser) {
+			if(ud.getEmail().equals(email)) {
+				System.out.println("Email já cadastrado!");	
+				
+				saida = false;
+			}
+		}
+		return saida;
+	}
+	public static boolean ComparaCelular(String celular) {
+		boolean saida = true;
+		
+		for(Usuario_Function ud : LoginUser) {
+			if(ud.getCelular().equals(celular)) {
+				System.out.println("Celular já cadastrado!");	
+				
+				saida = false;
+			}
+		}
+		return saida;
+	}
+	public static boolean ComparaLogin(String login) {
+		boolean saida = true;
+		
+		for(Usuario_Function ud : LoginUser) {
+			if( ud.getLogin().equals(login)) {
+				System.out.println("Login já cadastrado, crie um novo!");
+				
+				saida = false;
+			}
+		}
+		return saida;
+	}
+	//FIM DOS METODOS DE COMPARAÇÃO
 	
 	//PERFIL
 		public static String Perfil() {

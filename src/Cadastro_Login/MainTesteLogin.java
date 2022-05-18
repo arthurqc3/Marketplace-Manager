@@ -8,7 +8,8 @@ public class MainTesteLogin {
 	    Scanner entradaString = new Scanner(System.in);
 	    
 	    String menu = "";
-	    int vezes_loop = 1;
+	    //VARIAVEL PARA LOOP
+	    int repete = 1;
 	    
 	    //REFERENCIA PARA O OBJETO
 	    Usuario_Function objUser;
@@ -16,15 +17,19 @@ public class MainTesteLogin {
 	    String nome_empresa = "", cnpj = "", email = "", celular = "";
 	    String login = "", senha = "";
 	    
-	    do {	    	
+	    while (menu != "3") {
+	    	
 	    		MenuInicial();
 	    		menu = entrada.nextLine();
 	    		Usuario_Function.NumeroInteiroValido(menu);
-	    		    	
+	    		
+	    		repete = 1;
 	    	switch(menu) {
 	    		case "1":		    			    			 
 	    			
-	    			do {	    					    					
+	    			//REPETIÇÃO DO MENULOGIN
+	    			while (repete == 1) {	
+	    				
 	    					MenuLogin();
 		    				
 		    				System.out.println("Login: ");
@@ -34,71 +39,114 @@ public class MainTesteLogin {
 		    				
 		    				if(Usuario_Function.getLoginUser() == null || Usuario_Function.getLoginUser().isEmpty()){
 		     			          System.out.println("Não existem contas cadastradas!\n");
-		     			          System.out.println("===> Cadastre uma conta na opção 2 <==="); 		     			          		     			          
+		     			          System.out.println("===> Cadastre uma conta na opção 2 <===");
+		     			          
+		     			         repete += 1;
 		     			        } else if(Usuario_Function.acessoUser(login, senha) == false) {
 		     			        	
 		     			        	do {		    		        		
 		     			        		MenuLogin_Saida();
 		     			        		menu = entrada.nextLine();
-		     			        				    		        				    		        		
+		     			        		Usuario_Function.NumeroInteiroValido(menu);
+		     			        		
+		     			        		repete = 0;
 		     			        		switch(menu) {		    		        		
 		     			        		case "1":		     			        			
-		     			        			vezes_loop = 2;
+		     			        			repete = 1;
 		     			        			
 		     			        			break;
 		     			        		case "2":
-		     			        			vezes_loop = 1;
+		     			        			repete = 2;
 		     			        			
 		     			        			break;
 		     			        		default:
-		     			        			System.out.println("Digite uma das opções escolhidas!");
+		     			        			System.out.println("Digite uma das opções indicadas!");
+		     			        			
+		     			        			repete = 0;
 		     			        		}
-		     			        		
-		     			        		
-		     			        		
-		     			        	} while(vezes_loop == 1);
-		     			        	
-	    				}
-		    				
-		    		if(vezes_loop == 1) {
-		    		break;	
-		    		}
-		    		
-	    			} while (Usuario_Function.acessoUser(login, senha) == false || vezes_loop == 1);
+		     			        					     			        		
+		     			        	} while(repete == 0);		     			        	
+	    				}		    						    		
+	    			}//FIM REPETIÇÃO MENULOGIN
 	    			
 	    			break;	    			   			
 	    		case "2":
+	    			int confere = 0;
 	    			MenuCadastro();
 	    			
-	    			System.out.println("Nome da empresa: ");
-	    			nome_empresa = entradaString.nextLine();
-	    			System.out.println("CNPJ: ");
-	    			cnpj = entradaString.nextLine();
-	    			System.out.println("Email: ");
-	    			email = entradaString.nextLine();
-	    			System.out.println("Celular: ");
-	    			celular = entradaString.nextLine();
-	    			System.out.println("Login: ");
-	    			login = entradaString.nextLine();
-	    			System.out.println("Senha: ");
-	    			senha = entradaString.nextLine();
+	    			while(confere == 0) {
+	    				System.out.println("Nome da empresa: ");
+	    				nome_empresa = entradaString.nextLine();	    				
+	    				
+	    				if(Usuario_Function.ComparaNome(nome_empresa) == true) {
+	    					confere = 1;
+	    				}
+	    			}
 	    			
-	    			//Criando objeto da classe Usuario_cadastro
-	    			objUser = new Usuario_Function(nome_empresa,
-	    					cnpj, email, celular, login, senha);
-	    			 //Guarda no ArrayList
-	    			Usuario_Function.criarUsuarios(objUser);
-	    	        System.out.println(Usuario_Function.Perfil());
+	    			while(confere == 1) {
+	    				System.out.println("CNPJ: ");
+	    				cnpj = entradaString.nextLine();	    				
+	    				
+	    				if(Usuario_Function.ComparaCnpj(cnpj) == true) {
+	    					confere = 2;
+	    				}
+	    			}
+	    			
+	    			while(confere == 2) {
+	    				System.out.println("Email: ");
+	    				email = entradaString.nextLine();	    				
+	    				
+	    				if(Usuario_Function.ComparaEmail(email) == true) {
+	    					confere = 3;
+	    				}
+	    			}
+	    			
+	    			while(confere == 3) {
+	    				System.out.println("Celular: ");
+	    				celular = entradaString.nextLine();	    				
+	    				
+	    				if(Usuario_Function.ComparaCelular(celular) == true) {
+	    					confere = 4;
+	    				}
+	    			}
+	    			
+	    			while(confere == 4) {
+	    				System.out.println("Login: ");
+	    				login = entradaString.nextLine();	    				
+	    				
+	    				if(Usuario_Function.ComparaLogin(login) == true) {
+	    					confere = 5;
+	    				}
+	    			}
+	    			
+	    			if(confere == 5) {
+	    				System.out.println("Senha: ");
+	    				senha = entradaString.nextLine();
+	    				
+	    				confere = 6;
+	    			}
+	    					    				    			
+	    			if(confere == 6) {
+	    				//CRIANDO OBJETO
+	    				objUser = new Usuario_Function(nome_empresa,
+	    						cnpj, email, celular, login, senha);
+	    				//GUARDANDO DADOS NO ARRAYLIST
+	    				Usuario_Function.criarUsuarios(objUser);
+	    				System.out.println(Usuario_Function.Perfil());	    				
+	    			}
 	    	        
 	    	        break;
 	    		case "3":
 	    			System.out.println("Saindo ...");
 	    	        
-	    			break;
-	    		}//Fim switch	    	
-	    } while (menu != "3");
+	    			System.exit(0);
+	    		default:
+	    			System.out.println("Digite uma das opções indicadas!");
+	    			
+	    		}//FIM SWITCH	    	
+	    }//FIM WHILE
 	    
-	}//FIm main
+	}//FIM MAIN
 	
 	public static void MenuInicial() {
 		System.out.println("===> Bem vindo ao Gerenciador de Lojas online <===");
