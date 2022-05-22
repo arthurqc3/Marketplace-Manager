@@ -1,7 +1,6 @@
 package Cadastro_Login;
 
 import java.util.ArrayList;
-
 import Principal.Main;
 
 public class Usuario_Function extends Usuario_Conta {
@@ -59,13 +58,6 @@ public class Usuario_Function extends Usuario_Conta {
 	    
 	    System.out.println("\nCadastro realizado com sucesso!");
 	  }
-	
-	
-	//ACESSO MENU
-	public static void MenuAcess() {
-		
-		
-	}
 	
 	//COMPARAR DADOS DO USUARIO
 	public static boolean ComparaNome(String nome_empresa) {

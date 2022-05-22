@@ -102,11 +102,11 @@ public class Main extends Menus {
 	    								break;
 	    							//##### 4 - GRCA
 	    							case "4":
-	    								
+	    								System.out.println("Será adicionado futuramente!");
 	    								break;
 	    							//##### 5 - PUBLICIDADE
 	    							case "5":
-	    								
+	    								System.out.println("Será adicionado futuramente!");
 	    								break;
 	    							//##### 6 - CONFIG
 	    							case "6":
