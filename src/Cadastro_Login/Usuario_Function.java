@@ -2,6 +2,8 @@ package Cadastro_Login;
 
 import java.util.ArrayList;
 
+import Principal.Main;
+
 public class Usuario_Function extends Usuario_Conta {
 	
 	public Usuario_Function(String nome_empresa, String cnpj, String email, String celular, String login,
@@ -17,11 +19,18 @@ public class Usuario_Function extends Usuario_Conta {
 	  }
 	
 	//METODO PARA TRATAMENTO DE ERRO EM MENUS
-	public static boolean NumeroInteiroValido(String menu) {
+	public static boolean NumeroInteiroValido(String menuLogin, String menuTelaInicial) {
 		boolean saida;
 		
 		try {
-			Integer.parseInt(menu);
+			Integer.parseInt(menuLogin);
+			saida = true;
+		} catch (NumberFormatException e) {
+			saida = false;
+		}
+		
+		try {
+			Integer.parseInt(menuTelaInicial);
 			saida = true;
 		} catch (NumberFormatException e) {
 			saida = false;
@@ -35,13 +44,10 @@ public class Usuario_Function extends Usuario_Conta {
 			boolean saida = false;
 			
 			for(Usuario_Function ud : LoginUser) {				
-				if(ud.getLogin().equals(login) && ud.getSenha().equals(senha)) {			
-						
-						MainTesteLogin.Menu();
-						
+				if(ud.getLogin().equals(login) && ud.getSenha().equals(senha)) {
+					
 						saida = true;
-				} else {
-					System.out.println("Usuário e/ou senha incorrreto(s)!");					
+						break;
 				}
 			}		
 			return saida;
@@ -56,13 +62,9 @@ public class Usuario_Function extends Usuario_Conta {
 	
 	
 	//ACESSO MENU
-	public static void MenuAcess(String login, String senha) {
+	public static void MenuAcess() {
 		
-		if(acessoUser(login, senha) == true) {
-			
-			System.out.println("MENU ACESSADO!");
-			//FALTA IMPLEMENTAR			
-		}
+		
 	}
 	
 	//COMPARAR DADOS DO USUARIO
@@ -118,7 +120,7 @@ public class Usuario_Function extends Usuario_Conta {
 		boolean saida = true;
 		
 		for(Usuario_Function ud : LoginUser) {
-			if( ud.getLogin().equals(login)) {
+			if(ud.getLogin().equals(login)) {
 				System.out.println("Login já cadastrado, crie um novo!");
 				
 				saida = false;

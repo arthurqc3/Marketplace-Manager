@@ -1,4 +1,4 @@
-package Cadastro_Login;
+/*package Cadastro_Login;
 
 import java.util.Scanner;
 
@@ -192,3 +192,4 @@ public class MainTesteLogin {
 		System.out.println("------------------------------------");
 	}
 }
+*/
