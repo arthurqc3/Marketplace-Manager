@@ -6,17 +6,18 @@ import java.util.Scanner;
 
 public class EstoqueFuncoes extends CadastrodeItens {
 
-	public EstoqueFuncoes(String nome, Integer quantity, String fornecedor, Double valordeCeV, Integer qntdEstoque) {
-		super(nome, quantity, fornecedor, valordeCeV, qntdEstoque);
+	public EstoqueFuncoes(String nome, Integer quantity, String fornecedor, Double valordeCeV) {
+		super(nome, quantity, fornecedor, valordeCeV);
 		
 	}
 	
-	//Função para Cadastro dos itens
+	public static List<CadastrodeItens > c = new ArrayList<>(); //Array de armazenamento dos itens
+	Scanner sc = new Scanner(System.in);
+	
+	
+	// Cadastro dos itens
 	
 	public void Cadastro() {
-		
-		List<CadastrodeItens > c = new ArrayList<>(); //Array de armazenamento dos itens
-		Scanner sc = new Scanner(System.in);
 		
 		System.out.println("Coloque as Informações do produto: ");
 		
@@ -32,10 +33,7 @@ public class EstoqueFuncoes extends CadastrodeItens {
 		System.out.print("Preço: ");
 		double valordeCeV = sc.nextDouble();
 		
-		System.out.print("Quantidade em estoque: ");
-		int qntdEstoque = sc.nextInt();
-		
-		CadastrodeItens product = new CadastrodeItens(name, quantity, fornecedor, valordeCeV, qntdEstoque);
+		CadastrodeItens product = new CadastrodeItens(name, quantity, fornecedor, valordeCeV);
 		c.add(product);
 		
 		System.out.println("Item Cadastrado: ");
@@ -45,32 +43,47 @@ public class EstoqueFuncoes extends CadastrodeItens {
 		
 	}
 	
-	
-	
 	// Remoção de itens no estoque
 	
-	public void Remocao() {
-		
-		
-		
+	public static void Remocao(String nome) {
+	
+		for (CadastrodeItens x : c) {
+			if(x.getNome().equalsIgnoreCase(nome)) {
+				c.remove(x);
+			}
+		}
 	}
-	
-	
 	
 	// Busca de itens no estoque
 
-	public void Busca() {
+	public static void Busca(String nome) {
 		
-		
+		for (CadastrodeItens x : c) {
+			if(x.getNome().equalsIgnoreCase(nome)) {
+				System.out.println("Nome: " + x.getNome());
+				System.out.println("Quantidade em estoque: " + x.getQuantity());
+				System.out.println("Valor individual: " + x.getValordeCeV());
+				System.out.println("Nome: " + x.getFornecedor());
+				System.out.printf("Valor Total: %.2f"+ x.valorTotal());
+			}
+		}
 	}
-	
-	
 	
 	// Ver todos os Itens Cadastrados
 	
-	public void Vizualizacao() {
+	public static void Vizualizacao() {
 		
-		
+		int temp = 0;
+		for (CadastrodeItens x : c ) {
+			
+			temp++;
+			System.out.println("item " + temp);
+			System.out.println("Nome: " + x.getNome());
+			System.out.println("Quantidade em estoque: " + x.getQuantity());
+			System.out.println("Valor individual: " + x.getValordeCeV());
+			System.out.println("Nome: " + x.getFornecedor());
+			System.out.printf("Valor Total: %.2f"+ x.valorTotal());	
+		}
 		
 	}
 	

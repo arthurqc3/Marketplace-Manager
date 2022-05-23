@@ -6,7 +6,6 @@ public class CadastrodeItens {
 	private Integer quantity;
 	private String fornecedor;
 	private Double ValordeCeV;
-	private Integer QntdEstoque;
 	
 	public String getNome() {
 		return nome;
@@ -32,20 +31,17 @@ public class CadastrodeItens {
 	public void setValordeCeV(Double valordeCeV) {
 		ValordeCeV = valordeCeV;
 	}
-	public Integer getQntdEstoque() {
-		return QntdEstoque;
-	}
-	public void setQntdEstoque(Integer qntdEstoque) {
-		QntdEstoque = qntdEstoque;
-	}
 	
 	
-	public CadastrodeItens(String nome, Integer quantity, String fornecedor, Double valordeCeV, Integer qntdEstoque) {
-		this.nome = nome;
+	public CadastrodeItens(String nome, Integer quantity, String fornecedor, Double valordeCeV) {
+		this.nome = nome.toLowerCase();
 		this.quantity = quantity;
 		this.fornecedor = fornecedor;
 		this.ValordeCeV = valordeCeV;
-		this.QntdEstoque = qntdEstoque;
+	}
+	
+	public double valorTotal() {
+		return ValordeCeV * quantity;
 	}
 	
 	public String toString() {
@@ -57,7 +53,7 @@ public class CadastrodeItens {
 				+ " unidades, preço: "
 				+ ValordeCeV
 				+ ", Quantitade em estoque:"
-				+ QntdEstoque;
+				+ quantity;
 	}		
 		
 }
