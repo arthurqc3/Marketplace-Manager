@@ -18,6 +18,18 @@ public class Menus {
 		System.out.println("------------------------------------");
 	}
 	
+	public static void MenuSeguranca() {
+		System.out.println("===> Confirme seu Login e Senha para continuar <===");
+		System.out.println("------------------------------------");
+	}
+
+	public static void MenuExcluir() {
+		System.out.println("===> Você está prestes a EXCLUIR SEU CADASTRO <===");
+		System.out.println("===> Deseja continuar ? <===");
+		System.out.println("===> Sim ou Nao <===");
+		System.out.println("------------------------------------");
+	}
+	
 	public static void MenuLogin_Saida() {
 		System.out.println("===> Tela de Login <===");
 		System.out.println("===> Escolha o que quer fazer agora <===");
@@ -44,6 +56,17 @@ public class Menus {
 		System.out.println("5 - Publicidade");
 		System.out.println("6 - Configurações");
 		System.out.println("7 - Voltar");
+		System.out.println("------------------------------------");
+	}
+	
+	public static void MenuConfig() {
+		System.out.println("===> Configurações <===");
+		System.out.println("===> Escolha o que quer fazer <===");
+		System.out.println("------------------------------------");
+		System.out.println("1 - Ver perfil");
+		System.out.println("2 - Ver login e senha");
+		System.out.println("3 - Excluir cadastro");
+		System.out.println("4 - Voltar");
 		System.out.println("------------------------------------");
 	}
 	

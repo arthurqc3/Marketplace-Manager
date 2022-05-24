@@ -1,10 +1,14 @@
 package Cadastro_Login;
 
 import java.util.ArrayList;
-import Principal.Main;
+import java.util.Iterator;
+
+import Principal.*;
 
 public class Usuario_Function extends Usuario_Conta {
 	
+	//private Objeto;
+
 	public Usuario_Function(String nome_empresa, String cnpj, String email, String celular, String login,
 			String senha) {
 		super(nome_empresa, cnpj, email, celular, login, senha);
@@ -42,13 +46,25 @@ public class Usuario_Function extends Usuario_Conta {
 		public static boolean acessoUser(String login, String senha) {
 			boolean saida = false;
 			
-			for(Usuario_Function ud : LoginUser) {				
-				if(ud.getLogin().equals(login) && ud.getSenha().equals(senha)) {
+			Iterator i = LoginUser.iterator();
+			while(i.hasNext()) {
+				Usuario_Conta ud = (Usuario_Conta)i.next();
+				
+					if(Usuario_Conta.getLogin().equals(login) && Usuario_Conta.getSenha().equals(senha)) {
 					
-						saida = true;
-						break;
+					saida = true;
+					break;
 				}
+				
 			}		
+			
+			/*for(Usuario_Function ud : LoginUser) {				
+				if(Usuario_Conta.getLogin().equals(login) && Usuario_Conta.getSenha().equals(senha)) {
+					
+					saida = true;
+					break;
+				}
+			}*/		
 			return saida;
 		}
 	
@@ -58,6 +74,14 @@ public class Usuario_Function extends Usuario_Conta {
 	    
 	    System.out.println("\nCadastro realizado com sucesso!");
 	  }
+	
+	//EXCLUIR CONTA CADASTRADA
+		public static void excluirConta() {
+			
+		    for(Usuario_Conta ud : LoginUser){
+		      LoginUser.remove(ud);	  
+		    }
+		}
 	
 	//COMPARAR DADOS DO USUARIO
 	public static boolean ComparaNome(String nome_empresa) {
@@ -122,7 +146,7 @@ public class Usuario_Function extends Usuario_Conta {
 	}
 	//FIM DOS METODOS DE COMPARAÇÃO
 	
-	//PERFIL
+	/*//PERFIL
 		public static String Perfil() {
 			String saida = "";
 			
@@ -131,6 +155,6 @@ public class Usuario_Function extends Usuario_Conta {
 				saida += ud.imprimirDadosConta();
 			}
 			return saida;
-		}
+		}*/
 	
 }

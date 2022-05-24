@@ -1,4 +1,4 @@
-package Estoque;
+/*package Estoque;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -35,4 +35,4 @@ public class Main {
 		sc.close();
 	}
 	
-}
+}*/

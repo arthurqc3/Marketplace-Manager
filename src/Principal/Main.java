@@ -3,6 +3,7 @@ package Principal;
 import Estoque.*;
 import Financeiro.*;
 import Cadastro_Login.*;
+import Config.Perfil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,7 +14,7 @@ public class Main extends Menus {
 	public static void main(String[] args) {						
 		Scanner entrada = new Scanner(System.in);
 		Scanner entradaString = new Scanner(System.in);
-		String menuLogin = "", menuTelaInicial = "";
+		String menuLogin = "", menuTelaInicial = "", resposta = "";
 		//VARIAVEL PARA LOOP
 		int repete = 1;
 			    
@@ -91,7 +92,7 @@ public class Main extends Menus {
 	    								break;
 	    							//##### 2 - ESTOQUE
 	    							case "2":				
-	    								EstoqueFuncoes ef = new EstoqueFuncoes(null, null, null, null, null);
+	    								EstoqueFuncoes ef = new EstoqueFuncoes(null, null, null, null);
 	    								
 	    								ef.Cadastro();
 	    								
@@ -110,6 +111,69 @@ public class Main extends Menus {
 	    								break;
 	    							//##### 6 - CONFIG
 	    							case "6":
+	    								
+	    								while(menuTelaInicial != "4") {
+	    									
+	    									MenuConfig();
+	    									menuTelaInicial = entrada.nextLine();
+	    									Usuario_Function.NumeroInteiroValido(menuLogin, menuTelaInicial);
+	    									
+	    									switch(menuTelaInicial) {
+	    										//VER PERFIL
+	    										case "1":
+	    											System.out.println(Perfil.imprimirDadosConta());
+	    											
+	    											break;
+	    										//VER LOGIN E SENHA
+	    										case "2":
+	    											MenuSeguranca();
+	    											
+	    											System.out.println("Login: ");
+	    						    				login = entradaString.nextLine();
+	    						    				System.out.println("Senha: ");
+	    						    				senha = entradaString.nextLine();
+	    												    											
+	    											
+	    											if(Usuario_Function.acessoUser(login, senha) == true) {
+	    												System.out.println(Perfil.imprimirLoginSenha());	    												
+	    											}
+	    											
+	    											break;
+	    										//EXCLUI PERFIL
+	    										case "3":
+	    											MenuSeguranca();
+	    											
+	    											System.out.println("Login: ");
+	    						    				login = entradaString.nextLine();
+	    						    				System.out.println("Senha: ");
+	    						    				senha = entradaString.nextLine();
+	    												    											
+	    											
+	    											if(Usuario_Function.acessoUser(login, senha) == true) {
+	    												MenuExcluir();	    											
+		    											resposta = entradaString.nextLine();
+		    											
+		    											if(resposta.equalsIgnoreCase("sim")) {		    												
+		    												System.out.println("CONTA EXCLUIDA COM SUCESSO!");
+		    												
+		    												Usuario_Function.excluirConta();
+		    												
+		    											} else {
+		    												
+		    												 break;
+		    											}    												
+	    											}	    												    											
+	    											
+	    											break;
+	    										//VOLTA PARA MENU
+	    										case "4":
+	    											
+	    											break;
+	    										default:
+	    											
+	    									}
+	    									
+	    								}	    									    							    								
 	    								
 	    								break;
 	    							//##### 7 - VOLTAR
@@ -194,7 +258,7 @@ public class Main extends Menus {
 	    						cnpj, email, celular, login, senha);
 	    				//GUARDANDO DADOS NO ARRAYLIST
 	    				Usuario_Function.criarUsuarios(objUser);
-	    				System.out.println(Usuario_Function.Perfil());	    				
+	    				//System.out.println(Usuario_Function.Perfil());	    				
 	    			}
 	    	        
 	    	        break;
@@ -208,6 +272,8 @@ public class Main extends Menus {
 	    		}//FIM SWITCH	    		    	
 	    	
 	    }//FIM WHILE									    	    
-	    
+	   
+	    entrada.close();
+	    entradaString.close();
 	}//FIM MAIN	
 }//FIM CLASSE MAIN

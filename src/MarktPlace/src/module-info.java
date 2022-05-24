@@ -1,9 +1,0 @@
-/**
- * 
- */
-/**
- * @author Black
- *
- */
-module MarktPlace {
-}

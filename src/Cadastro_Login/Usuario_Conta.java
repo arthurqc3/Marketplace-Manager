@@ -2,12 +2,12 @@ package Cadastro_Login;
 
 public class Usuario_Conta {
 	
-	private String nome_empresa;
-	private String cnpj;
-	private String email;
-	private String celular;
-	protected String login;
-	private String senha;
+	private static String nome_empresa;
+	private static String cnpj;
+	private static String email;
+	private static String celular;
+	protected static String login;
+	private static String senha;
 	
 	public Usuario_Conta(String nome_empresa, String cnpj, String email,
 			String celular, String login, String senha) {
@@ -19,44 +19,44 @@ public class Usuario_Conta {
 		this.senha = senha;
 	}
 	
-	public String getNome_empresa() {
+	public static String getNome_empresa() {
 		return nome_empresa;
 	}
 	public void setNome_empresa(String nome_empresa) {
 		this.nome_empresa = nome_empresa;
 	}
-	public String getCnpj() {
+	public static String getCnpj() {
 		return cnpj;
 	}
 	public void setCnpj(String cnpj) {
 		this.cnpj = cnpj;
 	}
-	public String getEmail() {
+	public static String getEmail() {
 		return email;
 	}
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getCelular() {
+	public static String getCelular() {
 		return celular;
 	}
 	public void setCelular(String celular) {
 		this.celular = celular;
 	}
-	public String getLogin() {
+	public static String getLogin() {
 		return login;
 	}
 	public void setLogin(String login) {
 		this.login = login;
 	}
-	public String getSenha() {
+	public static String getSenha() {
 		return senha;
 	}
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
 	
-	//IMPRIMI DADOS DO USUARIO CADASTRADO
+	/*//IMPRIMI DADOS DO USUARIO CADASTRADO
 		public String imprimirDadosConta() {
 			
 			String saida = "---------------------------" +
@@ -71,7 +71,7 @@ public class Usuario_Conta {
 		}
 	
 	//IMPRIMI LOGIN E SENHA
-		public String imprimirConta() {
+		public String imprimirLoginSenha() {
 			
 			String saida = "---------------------------" +
 					"\n===> Dados da Conta " + " <===" +
@@ -80,5 +80,5 @@ public class Usuario_Conta {
 					"\n--------------------------\n";
 			
 			return saida;
-		}
+		}*/
 }
