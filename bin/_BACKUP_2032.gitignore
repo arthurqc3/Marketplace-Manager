@@ -1,0 +1,13 @@
+/.metadata/
+<<<<<<< HEAD
+/Cadastro_Login/
+/Principal/
+=======
+/.gitignore
+/Cadastro_Login/
+/Config/
+/Estoque/
+/Financeiro/
+/Principal/
+/TelaInicial/
+>>>>>>> 8447cb47de76f3b35cb7768c4fb95254c4258ef0

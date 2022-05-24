@@ -87,5 +87,37 @@ public class EstoqueFuncoes extends CadastrodeItens {
 		
 	}
 	
+	// Switch para funções
+	
+	public void funcoes(int numero) {
+		
+		String nome = "";
+		
+		switch(numero){
+		case 1:
+			Cadastro();
+			break;
+		case 2:
+			System.out.println("Digite o Nome do item para a remocao: :");
+			nome = sc.nextLine();
+			Remocao(nome);
+			break;
+		case 3:
+			System.out.println("Digite o Nome do item para a busca: ");
+			nome = sc.nextLine();
+			Busca(nome);
+			break;
+		case 4:
+			Vizualizacao();
+			break;
+		default:
+			System.out.println("Essa opção não existe, digite novamento");
+			numero = sc.nextInt();
+			funcoes(numero);
+			break;
+		}
+		
+	}
+	
 }
 
