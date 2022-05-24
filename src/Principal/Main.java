@@ -35,7 +35,7 @@ public class Main extends Menus {
 	    	switch(menuLogin) {
 	    		case "1":		    			    			 
 	    			
-	    			//REPETIï¿½ï¿½O DO MENULOGIN
+	    			//REPETICAO DO MENULOGIN
 	    			while (repete == 1) {	
 	    				
 	    					MenuLogin();
@@ -47,12 +47,12 @@ public class Main extends Menus {
 		    				
 		    				if(Usuario_Function.getLoginUser() == null || Usuario_Function.getLoginUser().isEmpty()){
 		     			          System.out.println("Nï¿½o existem contas cadastradas!\n");
-		     			          System.out.println("===> Cadastre uma conta na opï¿½ï¿½o 2 <===");
+		     			          System.out.println("===> Cadastre uma conta na opcao 2 <===");
 		     			          
 		     			         repete += 1;
 		     			        } else if(Usuario_Function.acessoUser(login, senha) == false) {
 		     			        	
-		     			        	System.out.println("Usuï¿½rio e/ou senha incorrreto(s)!");
+		     			        	System.out.println("Usuario e/ou senha incorrreto(s)!");
 		     			        	
 		     			        	do {		    		        		
 		     			        		MenuLogin_Saida();
@@ -70,7 +70,7 @@ public class Main extends Menus {
 		     			        			
 		     			        			break;
 		     			        		default:
-		     			        			System.out.println("Digite uma das opï¿½ï¿½es indicadas!");
+		     			        			System.out.println("Digite uma das opcoes indicadas!");
 		     			        			
 		     			        			repete = 0;
 		     			        		}
@@ -104,11 +104,11 @@ public class Main extends Menus {
 	    								break;
 	    							//##### 4 - GRCA
 	    							case "4":
-	    								System.out.println("Serï¿½ adicionado futuramente!");
+	    								System.out.println("Sera adicionado futuramente!");
 	    								break;
 	    							//##### 5 - PUBLICIDADE
 	    							case "5":
-	    								System.out.println("Serï¿½ adicionado futuramente!");
+	    								System.out.println("Sera adicionado futuramente!");
 	    								break;
 	    							//##### 6 - CONFIG
 	    							case "6":
@@ -120,7 +120,7 @@ public class Main extends Menus {
 	    									
 	    									switch(menuConfig) {
 	    										//VER PERFIL
-	    										case "1":
+	    										case "1":	    												    											
 	    											
 	    											System.out.println(Usuario_Function.imprimirDadosConta(nome_empresa, cnpj, email, celular));	    												
 	    											
@@ -179,7 +179,7 @@ public class Main extends Menus {
 	    											
 	    											break;
 	    										default:
-	    											System.out.println("Digite uma opção valida!");
+	    											System.out.println("Digite uma opcao valida!");
 	    											
 	    											break;
 	    									}//FIM SWITCH	    									
@@ -192,13 +192,13 @@ public class Main extends Menus {
 	    								
 	    								break;
 	    							default:
-	    								System.out.println("Digite uma opï¿½ï¿½o valida!");
+	    								System.out.println("Digite uma opcao valida!");
 	    								
 	    								break;																
 	    						}//FIM SWITCH
 	    				    }//FIM WHILE	    					
 	    				}		    				
-	    			}//FIM REPETIï¿½ï¿½O MENULOGIN	    				    		
+	    			}//FIM REPETICAO MENULOGIN	    				    		
 	    			
 	    			break;	    			   			
 	    		case "2":
@@ -270,7 +270,7 @@ public class Main extends Menus {
 	    	        
 	    			System.exit(0);
 	    		default:
-	    			System.out.println("Digite uma das opï¿½ï¿½es indicadas!");
+	    			System.out.println("Digite uma das opcoes indicadas!");
 	    			
 	    		}//FIM SWITCH	    		    	
 	    	

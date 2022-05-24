@@ -1,9 +1,6 @@
 package Cadastro_Login;
 
 import java.util.ArrayList;
-import java.util.Iterator;
-
-import Principal.*;
 
 public class Usuario_Function extends Usuario_Conta {
 	
@@ -57,7 +54,6 @@ public class Usuario_Function extends Usuario_Conta {
 	
 	//CADASTRO
 	public static void criarUsuarios(Usuario_Function ud){
-		int indice = 0;
 		
 	    LoginUser.add(ud);
 	    
@@ -126,7 +122,7 @@ public class Usuario_Function extends Usuario_Conta {
 		
 		for(Usuario_Function ud : LoginUser) {
 			if(ud.getLogin().equals(login)) {
-				System.out.println("Login já cadastrado, crie um novo!");
+				System.out.println("Login ja cadastrado, crie um novo!");
 				
 				saida = false;
 			}
@@ -138,7 +134,7 @@ public class Usuario_Function extends Usuario_Conta {
 	public static String imprimirDadosConta(String nome_empresa, String cnpj, String email, String celular) {
 		String saida = "";
 		
-		for(Usuario_Function ud : LoginUser) {
+		for(Usuario_Function ud: LoginUser) {
 			saida = "---------------------------" +
 					"\n===> Dados Usuario " + "(" + nome_empresa + ")" + " <===" +
 					"\nNome da empresa: " + nome_empresa +
@@ -165,18 +161,4 @@ public class Usuario_Function extends Usuario_Conta {
 		
 		return saida;
 	}
-	
-	//FIM DOS METODOS DE COMPARAÇÃO
-	
-	/*//PERFIL
-		public static String Perfil() {
-			String saida = "";
-			
-			for(Usuario_Function ud : LoginUser) {
-				
-				saida += ud.imprimirDadosConta();
-			}
-			return saida;
-		}*/
-	
 }

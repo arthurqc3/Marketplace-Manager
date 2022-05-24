@@ -24,7 +24,7 @@ public class Menus {
 	}
 
 	public static void MenuExcluir() {
-		System.out.println("===> Voc� est� prestes a EXCLUIR SEU CADASTRO <===");
+		System.out.println("===> Voce esta prestes a EXCLUIR SEU CADASTRO <===");
 		System.out.println("===> Deseja continuar ? <===");
 		System.out.println("===> Sim ou Nao <===");
 		System.out.println("------------------------------------");
@@ -54,13 +54,13 @@ public class Menus {
 		System.out.println("3 - Financeiro");
 		System.out.println("4 - GRAC");
 		System.out.println("5 - Publicidade");
-		System.out.println("6 - Configura��es");
+		System.out.println("6 - Configuracoes");
 		System.out.println("7 - Voltar");
 		System.out.println("------------------------------------");
 	}
 	
 	public static void MenuConfig() {
-		System.out.println("===> Configura��es <===");
+		System.out.println("===> Configuracoes <===");
 		System.out.println("===> Escolha o que quer fazer <===");
 		System.out.println("------------------------------------");
 		System.out.println("1 - Ver perfil");
@@ -75,8 +75,8 @@ public class Menus {
 		System.out.println("===> Escolha o que quer fazer <===");
 		System.out.println("------------------------------------");
 		System.out.println("1 - Cadastro de Itens");
-		System.out.println("2 - Remoção de Itens");
-		System.out.println("3 - Visualição de Itens");
+		System.out.println("2 - Remocao de Itens");
+		System.out.println("3 - Visualizacao de Itens");
 		System.out.println("3 - Pesquisar por Itens");
 		System.out.println("4 - Voltar");
 		System.out.println("------------------------------------");

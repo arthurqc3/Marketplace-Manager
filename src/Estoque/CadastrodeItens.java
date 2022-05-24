@@ -50,7 +50,7 @@ public class CadastrodeItens {
 				+ quantity
 				+ ", Fornecedor:"
 				+ fornecedor
-				+ " unidades, preço: "
+				+ " unidades, preco: "
 				+ ValordeCeV
 				+ ", Quantitade em estoque:"
 				+ quantity;

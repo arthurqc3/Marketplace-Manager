@@ -19,7 +19,7 @@ public class EstoqueFuncoes extends CadastrodeItens {
 	
 	public void Cadastro() {
 		
-		System.out.println("Coloque as Informações do produto: ");
+		System.out.println("Coloque as Informacoes do produto: ");
 		
 		System.out.print("Nome: ");
 		String name = sc.nextLine();
@@ -30,7 +30,7 @@ public class EstoqueFuncoes extends CadastrodeItens {
 		System.out.print("Quantitade: ");
 		int quantity = sc.nextInt();
 		
-		System.out.print("Preço: ");
+		System.out.print("Preco: ");
 		double valordeCeV = sc.nextDouble();
 		
 		CadastrodeItens product = new CadastrodeItens(name, quantity, fornecedor, valordeCeV);
@@ -43,7 +43,7 @@ public class EstoqueFuncoes extends CadastrodeItens {
 		
 	}
 	
-	// Remoção de itens no estoque
+	// Remocao de itens no estoque
 	
 	public static void Remocao(String nome) {
 	
@@ -87,7 +87,7 @@ public class EstoqueFuncoes extends CadastrodeItens {
 		
 	}
 	
-	// Switch para funções
+	// Switch para funcoes
 	
 	public void funcoes(int numero) {
 		
@@ -111,7 +111,7 @@ public class EstoqueFuncoes extends CadastrodeItens {
 			Vizualizacao();
 			break;
 		default:
-			System.out.println("Essa opção não existe, digite novamento");
+			System.out.println("Essa opcao nao existe, digite novamento");
 			numero = sc.nextInt();
 			funcoes(numero);
 			break;
