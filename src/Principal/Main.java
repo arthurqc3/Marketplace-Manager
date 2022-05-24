@@ -11,7 +11,8 @@ import java.util.Scanner;
 
 public class Main extends Menus {
 	
-	public static void main(String[] args) {						
+	public static void main(String[] args) {		
+		Scanner sc = new Scanner(System.in);
 		Scanner entrada = new Scanner(System.in);
 		Scanner entradaString = new Scanner(System.in);
 		String menuLogin = "", menuTelaInicial = "", resposta = "";
@@ -36,7 +37,7 @@ public class Main extends Menus {
 	    	switch(menuLogin) {
 	    		case "1":		    			    			 
 	    			
-	    			//REPETIÇÃO DO MENULOGIN
+	    			//REPETIï¿½ï¿½O DO MENULOGIN
 	    			while (repete == 1) {	
 	    				
 	    					MenuLogin();
@@ -47,13 +48,13 @@ public class Main extends Menus {
 		    				senha = entradaString.nextLine();
 		    				
 		    				if(Usuario_Function.getLoginUser() == null || Usuario_Function.getLoginUser().isEmpty()){
-		     			          System.out.println("Não existem contas cadastradas!\n");
-		     			          System.out.println("===> Cadastre uma conta na opção 2 <===");
+		     			          System.out.println("Nï¿½o existem contas cadastradas!\n");
+		     			          System.out.println("===> Cadastre uma conta na opï¿½ï¿½o 2 <===");
 		     			          
 		     			         repete += 1;
 		     			        } else if(Usuario_Function.acessoUser(login, senha) == false) {
 		     			        	
-		     			        	System.out.println("Usuário e/ou senha incorrreto(s)!");
+		     			        	System.out.println("Usuï¿½rio e/ou senha incorrreto(s)!");
 		     			        	
 		     			        	do {		    		        		
 		     			        		MenuLogin_Saida();
@@ -71,7 +72,7 @@ public class Main extends Menus {
 		     			        			
 		     			        			break;
 		     			        		default:
-		     			        			System.out.println("Digite uma das opções indicadas!");
+		     			        			System.out.println("Digite uma das opï¿½ï¿½es indicadas!");
 		     			        			
 		     			        			repete = 0;
 		     			        		}
@@ -92,9 +93,11 @@ public class Main extends Menus {
 	    								break;
 	    							//##### 2 - ESTOQUE
 	    							case "2":				
-	    								EstoqueFuncoes ef = new EstoqueFuncoes(null, null, null, null);
+	    								EstoqueFuncoes ef = new EstoqueFuncoes("", null, "", null);
 	    								
-	    								ef.Cadastro();
+	    								MenuEstoque();
+	    								int temp = sc.nextInt();
+	    								ef.funcoes(temp);
 	    								
 	    								break;
 	    							//##### 3 - FINANCEIRO
@@ -103,11 +106,11 @@ public class Main extends Menus {
 	    								break;
 	    							//##### 4 - GRCA
 	    							case "4":
-	    								System.out.println("Será adicionado futuramente!");
+	    								System.out.println("Serï¿½ adicionado futuramente!");
 	    								break;
 	    							//##### 5 - PUBLICIDADE
 	    							case "5":
-	    								System.out.println("Será adicionado futuramente!");
+	    								System.out.println("Serï¿½ adicionado futuramente!");
 	    								break;
 	    							//##### 6 - CONFIG
 	    							case "6":
@@ -184,7 +187,7 @@ public class Main extends Menus {
 	    								
 	    								break;
 	    							default:
-	    								System.out.println("Digite uma opção valida!");
+	    								System.out.println("Digite uma opï¿½ï¿½o valida!");
 	    								
 	    								break;																
 	    						}//FIM SWITCH
@@ -193,7 +196,7 @@ public class Main extends Menus {
 	    					//menuLogin = "3";
 	    					//break;
 	    				}		    				
-	    			}//FIM REPETIÇÃO MENULOGIN	    				    		
+	    			}//FIM REPETIï¿½ï¿½O MENULOGIN	    				    		
 	    			
 	    			break;	    			   			
 	    		case "2":
@@ -267,12 +270,12 @@ public class Main extends Menus {
 	    	        
 	    			System.exit(0);
 	    		default:
-	    			System.out.println("Digite uma das opções indicadas!");
+	    			System.out.println("Digite uma das opï¿½ï¿½es indicadas!");
 	    			
 	    		}//FIM SWITCH	    		    	
 	    	
 	    }//FIM WHILE									    	    
-	   
+	    sc.close();
 	    entrada.close();
 	    entradaString.close();
 	}//FIM MAIN	

@@ -67,8 +67,13 @@ public class Caixa implements formasDePagamento {
 		
 		int num = 0;
 		
-		System.out.println("Faturamento: ");
-		System.out.println("1: Diário\n2: Mensal\n");
+		System.out.println("===> Menu Financeiro <===");
+		System.out.println("===> Escolha o que quer fazer <===");
+		System.out.println("------------------------------------");
+		System.out.println("1 - Saldo Diario");
+		System.out.println("2 - Saldo Mensal");
+		System.out.println("------------------------------------");
+		
 		num = sc.nextInt();
 		
 		switch(num) {

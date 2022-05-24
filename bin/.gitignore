@@ -1,7 +1,8 @@
 /.metadata/
-/Principal/
+/.gitignore
 /Cadastro_Login/
 /Config/
 /Estoque/
 /Financeiro/
-/MarktPlace/
+/Principal/
+/TelaInicial/
