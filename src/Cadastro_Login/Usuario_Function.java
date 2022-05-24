@@ -7,8 +7,6 @@ import Principal.*;
 
 public class Usuario_Function extends Usuario_Conta {
 	
-	//private Objeto;
-
 	public Usuario_Function(String nome_empresa, String cnpj, String email, String celular, String login,
 			String senha) {
 		super(nome_empresa, cnpj, email, celular, login, senha);
@@ -22,7 +20,7 @@ public class Usuario_Function extends Usuario_Conta {
 	  }
 	
 	//METODO PARA TRATAMENTO DE ERRO EM MENUS
-	public static boolean NumeroInteiroValido(String menuLogin, String menuTelaInicial) {
+	public static boolean NumeroInteiroValido(String menuLogin, String menuTelaInicial, String menuConfig) {
 		boolean saida;
 		
 		try {
@@ -44,44 +42,35 @@ public class Usuario_Function extends Usuario_Conta {
 		
 	//ACESSO LOGIN
 		public static boolean acessoUser(String login, String senha) {
-			boolean saida = false;
+			boolean saida = false;							
 			
-			Iterator i = LoginUser.iterator();
-			while(i.hasNext()) {
-				Usuario_Conta ud = (Usuario_Conta)i.next();
-				
-					if(Usuario_Conta.getLogin().equals(login) && Usuario_Conta.getSenha().equals(senha)) {
+			for(Usuario_Function ud : LoginUser) {				
+				if(ud.getLogin().equals(login) && ud.getSenha().equals(senha)) {
+					
 					
 					saida = true;
 					break;
 				}
-				
 			}		
-			
-			/*for(Usuario_Function ud : LoginUser) {				
-				if(Usuario_Conta.getLogin().equals(login) && Usuario_Conta.getSenha().equals(senha)) {
-					
-					saida = true;
-					break;
-				}
-			}*/		
 			return saida;
 		}
 	
 	//CADASTRO
 	public static void criarUsuarios(Usuario_Function ud){
+		int indice = 0;
+		
 	    LoginUser.add(ud);
 	    
 	    System.out.println("\nCadastro realizado com sucesso!");
-	  }
+	}
 	
 	//EXCLUIR CONTA CADASTRADA
-		public static void excluirConta() {
-			
-		    for(Usuario_Conta ud : LoginUser){
-		      LoginUser.remove(ud);	  
-		    }
-		}
+	public static void excluirConta() {
+		
+	    for(Usuario_Conta ud : LoginUser){
+	      LoginUser.remove(ud);	  
+	    }
+	}
 	
 	//COMPARAR DADOS DO USUARIO
 	public static boolean ComparaNome(String nome_empresa) {
@@ -144,6 +133,39 @@ public class Usuario_Function extends Usuario_Conta {
 		}
 		return saida;
 	}
+	
+	//IMPRIMI DADOS DO USUARIO CADASTRADO
+	public static String imprimirDadosConta(String nome_empresa, String cnpj, String email, String celular) {
+		String saida = "";
+		
+		for(Usuario_Function ud : LoginUser) {
+			saida = "---------------------------" +
+					"\n===> Dados Usuario " + "(" + nome_empresa + ")" + " <===" +
+					"\nNome da empresa: " + nome_empresa +
+					"\nCNPJ: " + cnpj +
+					"\nEmail: " + email +
+					"\nCelular: " + celular +
+					"\n--------------------------\n";		
+		}
+		
+		return saida;
+	}
+		
+	//IMPRIMI LOGIN E SENHA
+	public static String imprimirLoginSenha(String login, String senha) {
+		String saida = "";
+		
+		for(Usuario_Function ud : LoginUser) {
+			saida = "---------------------------" +
+					"\n===> Dados da Conta " + " <===" +
+					"\nLogin: " + login +
+					"\nSenha: " + senha +
+					"\n--------------------------\n";			
+		}
+		
+		return saida;
+	}
+	
 	//FIM DOS METODOS DE COMPARAÇÃO
 	
 	/*//PERFIL
