@@ -39,7 +39,6 @@ public class EstoqueFuncoes extends CadastrodeItens {
 		System.out.println("Item Cadastrado: ");
 		System.out.println(product);
 		
-		sc.close();
 		
 	}
 	
@@ -64,7 +63,7 @@ public class EstoqueFuncoes extends CadastrodeItens {
 				System.out.println("Quantidade em estoque: " + x.getQuantity());
 				System.out.println("Valor individual: " + x.getValordeCeV());
 				System.out.println("Nome: " + x.getFornecedor());
-				System.out.printf("Valor Total: %.2f"+ x.valorTotal());
+				System.out.printf("Valor Total: %.2f%n"+ x.valorTotal());
 			}
 		}
 	}
@@ -82,7 +81,7 @@ public class EstoqueFuncoes extends CadastrodeItens {
 			System.out.println("Quantidade em estoque: " + x.getQuantity());
 			System.out.println("Valor individual: " + x.getValordeCeV());
 			System.out.println("Nome: " + x.getFornecedor());
-			System.out.printf("Valor Total: %.2f"+ x.valorTotal());	
+			System.out.printf("Valor Total: %.2f%n"+ x.valorTotal());	
 		}
 		
 	}

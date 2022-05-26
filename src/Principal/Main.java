@@ -91,7 +91,7 @@ public class Main extends Menus {
 	    								break;
 	    							//##### 2 - ESTOQUE
 	    							case "2":				
-	    								EstoqueFuncoes ef = new EstoqueFuncoes("", null, "", null);
+	    								EstoqueFuncoes ef = new EstoqueFuncoes("", 0, "", 0.0);
 	    								
 	    								MenuEstoque();
 	    								int temp = sc.nextInt();
