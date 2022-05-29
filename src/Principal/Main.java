@@ -126,7 +126,7 @@ public class Main extends Menus {
 	    										//VER PERFIL
 	    										case "1":	    												    											
 	    											
-	    											System.out.println(Usuario_Function.imprimirDadosConta(login));	    												
+	    											System.out.println(Usuario_Function.imprimirDadosConta(login));												
 	    											
 	    											break;
 	    										//VER LOGIN E SENHA
