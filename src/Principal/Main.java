@@ -2,6 +2,7 @@ package Principal;
 
 import Estoque.*;
 import Cadastro_Login.*;
+import Financeiro.*;
 
 //import java.util.ArrayList;
 //import java.util.List;
@@ -92,7 +93,7 @@ public class Main extends Menus {
 	    								break;
 	    							//##### 2 - ESTOQUE
 	    							case "2":				
-	    								EstoqueFuncoes ef = new EstoqueFuncoes("", null, "", null);
+	    								EstoqueFuncoes ef = new EstoqueFuncoes("", 0, "", 0.0);
 	    								
 	    								MenuEstoque();
 	    								int temp = sc.nextInt();
@@ -101,7 +102,9 @@ public class Main extends Menus {
 	    								break;
 	    							//##### 3 - FINANCEIRO
 	    							case "3":
-	    								
+	    								Caixa ff = new Caixa();
+	    								MenuFinaceiro();
+	    								ff.switchfinanceiro();
 	    								break;
 	    							//##### 4 - GRCA
 	    							case "4":

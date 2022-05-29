@@ -41,7 +41,8 @@ public class CadastrodeItens {
 	}
 	
 	public double valorTotal() {
-		return ValordeCeV * quantity;
+		double valorT = ValordeCeV * quantity;
+		return valorT;
 	}
 	
 	public String toString() {
@@ -54,7 +55,7 @@ public class CadastrodeItens {
 				+ ValordeCeV
 				+ ", Quantitade em estoque:"
 				+ quantity;
-	}		
+	}	
 		
 }
 	

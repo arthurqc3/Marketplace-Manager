@@ -76,9 +76,9 @@ public class Menus {
 		System.out.println("------------------------------------");
 		System.out.println("1 - Cadastro de Itens");
 		System.out.println("2 - Remocao de Itens");
-		System.out.println("3 - Visualizacao de Itens");
-		System.out.println("3 - Pesquisar por Itens");
-		System.out.println("4 - Voltar");
+		System.out.println("3 - Pesquisar Itens por Nome");
+		System.out.println("4 - Visualizacao dos Itens");
+		System.out.println("5 - Voltar");
 		System.out.println("------------------------------------");
 	}
 	
@@ -88,7 +88,7 @@ public class Menus {
 		System.out.println("------------------------------------");
 		System.out.println("1 - Formas de Pagamento");
 		System.out.println("2 - Financeiro");
-		System.out.println("4 - Voltar");
+		System.out.println("3 - Voltar");
 		System.out.println("------------------------------------");
 	}
 }
