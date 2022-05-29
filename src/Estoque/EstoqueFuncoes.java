@@ -37,19 +37,19 @@ public class EstoqueFuncoes extends CadastrodeItens {
 		c.add(product);
 		
 		System.out.println("Item Cadastrado: ");
-		System.out.println(product);
-		
+		Vizualizacao();
 		
 	}
 	
 	// Remocao de itens no estoque
 	
 	public static void Remocao(String nome) {
-		for (CadastrodeItens x : c) {
-			if(x.getNome().equalsIgnoreCase(nome)) {
-				c.remove(nome);
-			}
+		for (int i = 0; i < c.size(); i++) {
+	        String userListName = c.get(i).getNome();
+	        if(userListName.equals(nome)){
+	            c.remove(i);
 	        }
+	    }
 		}
 	
 	// Busca de itens no estoque
@@ -70,7 +70,6 @@ public class EstoqueFuncoes extends CadastrodeItens {
 	// Ver todos os Itens Cadastrados
 	
 	public static void Vizualizacao() {
-		
 		int temp = 0;
 		for (CadastrodeItens x : c ) {
 			
@@ -79,7 +78,7 @@ public class EstoqueFuncoes extends CadastrodeItens {
 			System.out.println("ITEM " + temp);
 			System.out.println("Nome: " + x.getNome());
 			System.out.println("Quantidade em estoque: " + x.getQuantity());
-			System.out.println("Valor individual: " + x.getValordeCeV());
+			System.out.println("Valor individual: R$" + x.getValordeCeV());
 			System.out.printf("Valor total em estoque: %.2f%n", x.valorTotal());
 			System.out.println("------------------------------------");
 		}
