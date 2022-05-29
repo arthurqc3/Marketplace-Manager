@@ -37,8 +37,7 @@ public class EstoqueFuncoes extends CadastrodeItens {
 		c.add(product);
 		
 		System.out.println("Item Cadastrado: ");
-		System.out.println(product);
-		
+		Vizualizacao();
 		
 	}
 	
@@ -71,7 +70,6 @@ public class EstoqueFuncoes extends CadastrodeItens {
 	// Ver todos os Itens Cadastrados
 	
 	public static void Vizualizacao() {
-		
 		int temp = 0;
 		for (CadastrodeItens x : c ) {
 			
@@ -80,7 +78,7 @@ public class EstoqueFuncoes extends CadastrodeItens {
 			System.out.println("ITEM " + temp);
 			System.out.println("Nome: " + x.getNome());
 			System.out.println("Quantidade em estoque: " + x.getQuantity());
-			System.out.println("Valor individual: " + x.getValordeCeV());
+			System.out.println("Valor individual: R$" + x.getValordeCeV());
 			System.out.printf("Valor total em estoque: %.2f%n", x.valorTotal());
 			System.out.println("------------------------------------");
 		}
