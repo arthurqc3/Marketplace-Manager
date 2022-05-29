@@ -88,7 +88,7 @@ public class Menus {
 		System.out.println("------------------------------------");
 		System.out.println("1 - Formas de Pagamento");
 		System.out.println("2 - Financeiro");
-		System.out.println("4 - Voltar");
+		System.out.println("3 - Voltar");
 		System.out.println("------------------------------------");
 	}
 }

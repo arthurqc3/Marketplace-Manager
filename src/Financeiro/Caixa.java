@@ -89,4 +89,25 @@ public class Caixa implements formasDePagamento {
 			break;
 		}
 	}
+	
+	public void switchfinanceiro() {
+		int temp = sc.nextInt();
+		
+		switch(temp) {
+		case 1:
+			pagamento();
+			break;
+		case 2:
+			faturamento();
+			break;
+		case 3:
+			break;
+		default:
+			System.out.println("item não reconhecido, escolha novamente:");
+			switchfinanceiro();
+			break;
+		}
+		
+	}
+	
 }

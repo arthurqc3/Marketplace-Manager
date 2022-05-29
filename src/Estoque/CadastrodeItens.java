@@ -55,7 +55,7 @@ public class CadastrodeItens {
 				+ ValordeCeV
 				+ ", Quantitade em estoque:"
 				+ quantity;
-	}		
+	}	
 		
 }
 	

@@ -45,11 +45,12 @@ public class EstoqueFuncoes extends CadastrodeItens {
 	// Remocao de itens no estoque
 	
 	public static void Remocao(String nome) {
-	
 		for (CadastrodeItens x : c) {
-			if(x.getNome().equalsIgnoreCase(nome)) {
-				c.remove(x);
-			}
+			for (int i = 0; i < c.size(); i++) {
+	            if (c.get(i).equals(x.getNome())) {
+	                c.remove(c.get(i));
+	            }
+	        }
 		}
 	}
 	
@@ -63,7 +64,7 @@ public class EstoqueFuncoes extends CadastrodeItens {
 				System.out.println("Quantidade em estoque: " + x.getQuantity());
 				System.out.println("Valor individual: " + x.getValordeCeV());
 				System.out.println("Nome: " + x.getFornecedor());
-				System.out.printf("Valor Total: %.2f%n"+ x.valorTotal());
+				System.out.printf("Valor Total: %.2f%n", x.valorTotal());
 			}
 		}
 	}
@@ -76,12 +77,13 @@ public class EstoqueFuncoes extends CadastrodeItens {
 		for (CadastrodeItens x : c ) {
 			
 			temp++;
-			System.out.println("item " + temp);
+			System.out.println("------------------------------------");
+			System.out.println("ITEM " + temp);
 			System.out.println("Nome: " + x.getNome());
 			System.out.println("Quantidade em estoque: " + x.getQuantity());
 			System.out.println("Valor individual: " + x.getValordeCeV());
-			System.out.println("Nome: " + x.getFornecedor());
-			System.out.printf("Valor Total: %.2f%n"+ x.valorTotal());	
+			System.out.printf("Valor total em estoque: %.2f%n", x.valorTotal());
+			System.out.println("------------------------------------");
 		}
 		
 	}
