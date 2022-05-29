@@ -46,13 +46,11 @@ public class EstoqueFuncoes extends CadastrodeItens {
 	
 	public static void Remocao(String nome) {
 		for (CadastrodeItens x : c) {
-			for (int i = 0; i < c.size(); i++) {
-	            if (c.get(i).equals(x.getNome())) {
-	                c.remove(c.get(i));
-	            }
+			if(x.getNome().equalsIgnoreCase(nome)) {
+				c.remove(nome);
+			}
 	        }
 		}
-	}
 	
 	// Busca de itens no estoque
 
