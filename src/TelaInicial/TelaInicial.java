@@ -9,5 +9,16 @@ public class TelaInicial {
 	//3 - ITENS EM FALTA
 	//4 - MENSAGENS DA COMUNIDADE
 	
+	public void qtdCaixa() {
+		
+	}
+	
+	public void qtdItensEstoque() {
+		
+	}
+	
+	public void itensFaltando() {
+		
+	}
 	
 }

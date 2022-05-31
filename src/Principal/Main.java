@@ -20,7 +20,7 @@ public class Main extends Menus {
 			    
 		//##### 1 - MENU LOGIN E CADASTRO
 	    //REFERENCIA PARA O OBJETO
-	    Usuario_Function objUser;
+	    Usuario_Function objUser = null;
 	    
 	    String nome_empresa = "", cnpj = "", email = "", celular = "";
 	    String login = "", senha = "";
@@ -31,10 +31,10 @@ public class Main extends Menus {
 	    		menuLogin = entrada.nextLine();
 	    		Usuario_Function.NumeroInteiroValido(menuLogin, menuTelaInicial, menuConfig);
 	    		
-	    		menuTelaInicial = "";
+	    		menuTelaInicial = "";	    		
 	    		repete = 1;
 	    	switch(menuLogin) {
-	    		case "1":		    			    			 
+	    		case "1":		    			     			 
 	    			
 	    			//REPETICAO DO MENULOGIN
 	    			while (repete == 1) {	
@@ -47,7 +47,7 @@ public class Main extends Menus {
 		    				senha = entradaString.nextLine();
 		    				
 		    				if(Usuario_Function.getLoginUser() == null || Usuario_Function.getLoginUser().isEmpty()){
-		     			          System.out.println("Nï¿½o existem contas cadastradas!\n");
+		     			          System.out.println("Nao existem contas cadastradas!\n");
 		     			          System.out.println("===> Cadastre uma conta na opcao 2 <===");
 		     			          
 		     			         repete += 1;
@@ -85,10 +85,11 @@ public class Main extends Menus {
 	    				    	menuTelaInicial = entrada.nextLine();
 	    						Usuario_Function.NumeroInteiroValido(menuLogin, menuTelaInicial, menuConfig);
 	    				    	
+	    						menuConfig = "";
 	    						switch(menuTelaInicial) {
 	    							//##### 1 - TELA INICIAL
 	    							case "1":
-	    								
+	    								System.out.println("Será adicionado em breve!");
 	    								break;
 	    							//##### 2 - ESTOQUE
 	    							case "2":				
@@ -125,7 +126,7 @@ public class Main extends Menus {
 	    										//VER PERFIL
 	    										case "1":	    												    											
 	    											
-	    											System.out.println(Usuario_Function.imprimirDadosConta(nome_empresa, cnpj, email, celular));	    												
+	    											System.out.println(Usuario_Function.imprimirDadosConta(login));												
 	    											
 	    											break;
 	    										//VER LOGIN E SENHA
@@ -209,7 +210,7 @@ public class Main extends Menus {
 	    			MenuCadastro();
 	    			
 	    			while(confere == 0) {
-	    				System.out.println("Nome da empresa: ");
+	    				System.out.print("Nome da empresa: ");
 	    				nome_empresa = entradaString.nextLine();	    				
 	    				
 	    				if(Usuario_Function.ComparaNome(nome_empresa) == true) {
@@ -218,7 +219,7 @@ public class Main extends Menus {
 	    			}
 	    			
 	    			while(confere == 1) {
-	    				System.out.println("CNPJ: ");
+	    				System.out.print("CNPJ: ");
 	    				cnpj = entradaString.nextLine();	    				
 	    				
 	    				if(Usuario_Function.ComparaCnpj(cnpj) == true) {
@@ -227,7 +228,7 @@ public class Main extends Menus {
 	    			}
 	    			
 	    			while(confere == 2) {
-	    				System.out.println("Email: ");
+	    				System.out.print("Email: ");
 	    				email = entradaString.nextLine();	    				
 	    				
 	    				if(Usuario_Function.ComparaEmail(email) == true) {
@@ -236,7 +237,7 @@ public class Main extends Menus {
 	    			}
 	    			
 	    			while(confere == 3) {
-	    				System.out.println("Celular: ");
+	    				System.out.print("Celular: ");
 	    				celular = entradaString.nextLine();	    				
 	    				
 	    				if(Usuario_Function.ComparaCelular(celular) == true) {
@@ -245,7 +246,7 @@ public class Main extends Menus {
 	    			}
 	    			
 	    			while(confere == 4) {
-	    				System.out.println("Login: ");
+	    				System.out.print("Login: ");
 	    				login = entradaString.nextLine();	    				
 	    				
 	    				if(Usuario_Function.ComparaLogin(login) == true) {
@@ -254,7 +255,7 @@ public class Main extends Menus {
 	    			}
 	    			
 	    			if(confere == 5) {
-	    				System.out.println("Senha: ");
+	    				System.out.print("Senha: ");
 	    				senha = entradaString.nextLine();
 	    				
 	    				confere = 6;
