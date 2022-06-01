@@ -1,18 +1,69 @@
 package Estoque;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class EstoqueFuncoes extends CadastrodeItens {
 
-	public EstoqueFuncoes(String nome, Integer quantity, String fornecedor, Double valordeCeV) {
-		super(nome, quantity, fornecedor, valordeCeV);
+	public EstoqueFuncoes(String nome, Integer quantity, String fornecedor, Double preco) {
+		super(nome, quantity, fornecedor, preco);
 		
 	}
 	
-	public static List<CadastrodeItens > c = new ArrayList<>(); //Array de armazenamento dos itens
+	public static ArrayList<CadastrodeItens> c = new ArrayList<CadastrodeItens>(); //Array de armazenamento dos itens
 	Scanner sc = new Scanner(System.in);
+	
+	// Verificar item Cadastrado
+	
+	public boolean verificarCadastro(String name) {
+		
+		boolean temp = false;
+		
+		for(CadastrodeItens x : c) {
+			// verificar se já existe um item igual ao que o usuario quer cadastrar
+			if(x.getNome().equalsIgnoreCase(name)) { // se SIM, alerta e quebra a função cadastro
+				System.out.println("Esse item ja esta cadastrado!, tente novamente");
+				temp = true;
+				}
+			}
+		return temp;
+	}
+	
+	// Verificar String
+	
+	public static String readString() { // leitura de strings
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        try {
+            return reader.readLine();
+        } catch (IOException e) {
+            throw new RuntimeException("Erro ao ler do teclado");
+        }
+    }
+	
+	// Verificar Int
+	
+	public static int readInt() { // leitura de valores do tipo int (inteiros)
+        String str = readString();
+        try {
+            return Integer.parseInt(str);
+        } catch (NumberFormatException e) {
+            throw new RuntimeException(str + " nao e um valor valido");
+        }
+    }
+	
+	// Verificar Double
+	
+	public static double readDouble() { // leitura de valores do tipo double (ponto flutuante)
+        String str = readString();
+        try {
+            return Double.parseDouble(str);
+        } catch (Exception e) {
+            throw new RuntimeException(str + " nao e um valor valido, tente nao usar ponto '.' ");
+        }
+    }
 	
 	
 	// Cadastro dos itens
@@ -22,24 +73,27 @@ public class EstoqueFuncoes extends CadastrodeItens {
 		System.out.println("Coloque as Informacoes do produto: ");
 		
 		System.out.print("Nome: ");
-		String name = sc.nextLine();
+		String name = readString();
+		
+		boolean temp = verificarCadastro(name);
+		
+		if (temp == true) return;
 		
 		System.out.print("Fornecedor: ");
-		String fornecedor = sc.nextLine();
+		String fornecedor = readString();
 		
 		System.out.print("Quantitade: ");
-		int quantity = sc.nextInt();
+		int quantity = readInt();
 		
 		System.out.print("Preco: ");
-		double valordeCeV = sc.nextDouble();
+		double preco = readDouble();
 		
-		CadastrodeItens product = new CadastrodeItens(name, quantity, fornecedor, valordeCeV);
+		CadastrodeItens product = new CadastrodeItens(name, quantity, fornecedor, preco);
 		c.add(product);
-		
 		System.out.println("Item Cadastrado: ");
 		Vizualizacao();
 		
-	}
+		}
 	
 	// Remocao de itens no estoque
 	
@@ -50,7 +104,7 @@ public class EstoqueFuncoes extends CadastrodeItens {
 	            c.remove(i);
 	        }
 	    }
-		}
+	}
 	
 	// Busca de itens no estoque
 
@@ -60,7 +114,7 @@ public class EstoqueFuncoes extends CadastrodeItens {
 			if(x.getNome().equalsIgnoreCase(nome)) {
 				System.out.println("Nome: " + x.getNome());
 				System.out.println("Quantidade em estoque: " + x.getQuantity());
-				System.out.println("Valor individual: " + x.getValordeCeV());
+				System.out.println("Valor individual: " + x.getPreco());
 				System.out.println("Nome: " + x.getFornecedor());
 				System.out.printf("Valor Total: R$ %.2f%n", x.valorTotal());
 			}
@@ -78,7 +132,7 @@ public class EstoqueFuncoes extends CadastrodeItens {
 			System.out.println("ITEM " + temp);
 			System.out.println("Nome: " + x.getNome());
 			System.out.println("Quantidade em estoque: " + x.getQuantity());
-			System.out.println("Valor individual: R$" + x.getValordeCeV());
+			System.out.println("Valor individual: R$" + x.getPreco());
 			System.out.printf("Valor total em estoque: %.2f%n", x.valorTotal());
 			System.out.println("------------------------------------");
 		}

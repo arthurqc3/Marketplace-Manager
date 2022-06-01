@@ -5,43 +5,51 @@ public class CadastrodeItens {
 	private String nome;
 	private Integer quantity;
 	private String fornecedor;
-	private Double ValordeCeV;
-	
+	private Double preco;
+
 	public String getNome() {
 		return nome;
 	}
+
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
+
 	public Integer getQuantity() {
 		return quantity;
 	}
+
 	public void setQuantity(Integer quantity) {
 		this.quantity = quantity;
 	}
+
 	public String getFornecedor() {
 		return fornecedor;
 	}
+
 	public void setFornecedor(String fornecedor) {
 		this.fornecedor = fornecedor;
 	}
-	public Double getValordeCeV() {
-		return ValordeCeV;
+
+	public Double getPreco() {
+		return preco;
 	}
-	public void setValordeCeV(Double valordeCeV) {
-		ValordeCeV = valordeCeV;
+
+	public void setPreco(Double preco) {
+		this.preco = preco;
 	}
-	
-	
-	public CadastrodeItens(String nome, Integer quantity, String fornecedor, Double valordeCeV) {
-		this.nome = nome.toLowerCase();
+
+	public CadastrodeItens(String nome, Integer quantity, String fornecedor, Double preco) {
+		super();
+		this.nome = nome;
 		this.quantity = quantity;
 		this.fornecedor = fornecedor;
-		this.ValordeCeV = valordeCeV;
+		this.preco = preco;
+		
 	}
-	
+
 	public double valorTotal() {
-		double valorT = ValordeCeV * quantity;
+		double valorT =  preco * quantity;
 		return valorT;
 	}
 	
@@ -52,7 +60,7 @@ public class CadastrodeItens {
 				+ ", Fornecedor:"
 				+ fornecedor
 				+ " unidades, preco: "
-				+ ValordeCeV
+				+ preco
 				+ ", Quantitade em estoque:"
 				+ quantity;
 	}	
